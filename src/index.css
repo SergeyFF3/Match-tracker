@@ -76,3 +76,26 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Tactic";
+  src: url("./fonts/TacticSans-Reg.woff2") format("woff2");
+}
+
+body {
+  font-family: "Inter";
+  height: 100dvh;
+  background-color: rgb(9, 9, 9);
+}
+
+.container {
+  max-width: 1930px;
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto;
+}
