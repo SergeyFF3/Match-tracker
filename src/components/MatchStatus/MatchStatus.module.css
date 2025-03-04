@@ -1,0 +1,25 @@
+.status {
+  padding: 6px;
+  border-radius: 4px;
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  user-select: none;
+}
+
+.live {
+  background: rgb(67, 173, 40);
+}
+
+.finished {
+  background: rgb(235, 2, 55);
+}
+
+.preparing {
+  background: rgb(235, 100, 2);
+}

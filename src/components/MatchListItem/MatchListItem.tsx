@@ -3,9 +3,10 @@ import { MatchType } from "../../types/types";
 import styles from "./MatchListItem.module.css";
 import { TeamIcon } from "../../assets/icons/TeamIcon";
 import { Score } from "../Score";
+import { MatchStatus } from "../MatchStatus";
 
 export const MatchListItem: FC<MatchType> = (props) => {
-  const { homeTeam, awayTeam, homeScore, awayScore } = props;
+  const { homeTeam, awayTeam, homeScore, awayScore, status } = props;
 
   return (
     <div className={styles.wrapper}>
@@ -16,6 +17,7 @@ export const MatchListItem: FC<MatchType> = (props) => {
 
       <div className={styles.score}>
         <Score homeTeam={homeScore} awayTeam={awayScore} />
+        <MatchStatus status={status} />
       </div>
 
       <div className={styles.column}>

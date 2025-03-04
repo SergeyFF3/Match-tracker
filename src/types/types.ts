@@ -1,3 +1,9 @@
+export enum MatchStatus {
+  LIVE = "Ongoing",
+  FINISHED = "Finished",
+  PREPARING = "Scheduled",
+}
+
 export type PlayerType = {
   kills: number;
   username: string;
