@@ -20,3 +20,9 @@ export type MatchType = {
   awayTeam: TeamType;
   homeTeam: TeamType;
 };
+
+export type MatchDataSchema = {
+  data: MatchType[];
+  isLoading: boolean;
+  error: null | string;
+};
