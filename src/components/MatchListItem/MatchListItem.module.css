@@ -1,0 +1,19 @@
+.wrapper {
+  padding: 16px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.teamName {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
