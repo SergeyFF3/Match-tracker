@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-import { MatchDataSchema } from "./types/types";
+import { useEffect } from "react";
 import { getMatches } from "./api/fetchData";
 import { MatchList } from "./components/MatchList";
+import { useMatchContext } from "./context/MatchContext";
 
 const App = () => {
-  const [matchesData, setMatchesData] = useState<MatchDataSchema>({
-    data: [],
-    isLoading: true,
-    error: null,
-  });
+  const { matchesData, setMatchesData } = useMatchContext();
 
   useEffect(() => {
     getMatches()
