@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { getMatches } from "./api/fetchData";
 import { MatchList } from "./components/MatchList";
 import { useMatchContext } from "./context/MatchContext";
+import { Header } from "./components/Header";
 
 const App = () => {
   const { matchesData, setMatchesData } = useMatchContext();
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Header />
       <MatchList matchList={matchesData.data} />
     </div>
   );
