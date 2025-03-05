@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 0 20px;
+  padding: 40px 0 20px;
 }
 
 .logo {
@@ -11,6 +11,13 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 100%;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .buttonContent {

@@ -5,8 +5,16 @@
 }
 
 .empty {
-  text-align: center;
   margin-top: 20px;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background: rgb(11, 14, 18);
+}
+
+.title {
   font-size: 20px;
   color: rgb(255, 255, 255);
 }

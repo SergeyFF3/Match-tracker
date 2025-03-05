@@ -1,4 +1,12 @@
-export enum MatchStatus {
+export enum AlertType {
+  ERROR = "error",
+}
+
+export enum ThemeButton {
+  PRIMARY = "primary",
+}
+
+export enum MatchState {
   LIVE = "Ongoing",
   FINISHED = "Finished",
   PREPARING = "Scheduled",

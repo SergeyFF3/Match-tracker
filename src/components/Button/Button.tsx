@@ -1,10 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 import styles from "./Button.module.css";
 import { classNames, Mods } from "../../helpers/classNames";
-
-export enum ThemeButton {
-  PRIMARY = "primary",
-}
+import { ThemeButton } from "../../types/types";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ThemeButton;

@@ -1,0 +1,12 @@
+.alert {
+  border-radius: 4px;
+  padding: 16px;
+  background: rgb(15, 19, 24);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

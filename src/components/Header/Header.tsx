@@ -4,30 +4,42 @@ import { Button } from "../Button";
 import { UpdateIcon } from "../../assets/icons/UpdateIcon";
 import { useMatchContext } from "../../context/MatchContext";
 import { getMatches } from "../../api/fetchData";
+import { Alert } from "../Alert";
+import { AlertType } from "../../types/types";
 
 export const Header: FC = () => {
-  const { setMatchesData } = useMatchContext();
+  const { error, isLoading, setError, setIsLoading, setMatches } =
+    useMatchContext();
 
   const updateData = async () => {
-    setMatchesData((prev) => ({ ...prev, isLoading: true }));
-    try {
-      const data = await getMatches();
-      setMatchesData({ data, isLoading: false, error: null });
-    } catch (error) {
-      setMatchesData({ data: [], isLoading: false, error });
-    }
+    setIsLoading(true);
+    setError(null);
+
+    getMatches()
+      .then((data) => {
+        setMatches(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.logo}>Match Tracker</div>
 
-      <Button onClick={updateData}>
-        <div className={styles.buttonContent}>
-          <p>Обновить</p>
-          <UpdateIcon />
-        </div>
-      </Button>
+      <div className={styles.actions}>
+        {Boolean(error) && <Alert type={AlertType.ERROR} text={error || ""} />}
+        <Button onClick={updateData} disabled={isLoading}>
+          <div className={styles.buttonContent}>
+            <p>Обновить</p>
+            <UpdateIcon />
+          </div>
+        </Button>
+      </div>
     </div>
   );
 };

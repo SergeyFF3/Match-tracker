@@ -6,27 +6,23 @@ import { Loader } from "../Loader";
 import styles from "./Content.module.css";
 
 export const Content: FC = () => {
-  const { matchesData, setMatchesData } = useMatchContext();
+  const { matches, isLoading, setIsLoading, setMatches, setError } =
+    useMatchContext();
 
   useEffect(() => {
     getMatches()
       .then((data) => {
-        setMatchesData({
-          data,
-          isLoading: false,
-          error: null,
-        });
+        setIsLoading(false);
+        setMatches(data);
       })
       .catch((error) => {
-        setMatchesData({
-          data: [],
-          isLoading: false,
-          error,
-        });
-      });
+        setIsLoading(false);
+        setError(error.message);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
-  if (matchesData.isLoading) {
+  if (isLoading) {
     return (
       <div className={styles.wrapper}>
         <Loader />
@@ -34,5 +30,5 @@ export const Content: FC = () => {
     );
   }
 
-  return <MatchList matchList={matchesData.data} />;
+  return <MatchList matchList={matches} />;
 };

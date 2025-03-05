@@ -1,24 +1,22 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { MatchType } from "../types/types";
 
-export type MatchDataSchema = {
-  data: MatchType[];
-  isLoading: boolean;
-  error: null | string;
-};
-
 type MatchContextType = {
-  matchesData: MatchDataSchema;
-  setMatchesData: (state: MatchDataSchema) => void;
+  matches: MatchType[];
+  setMatches: (state: MatchType[]) => void;
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
+  error: null | string;
+  setError: (value: string) => void;
 };
 
 const MatchContextDefaultValues: MatchContextType = {
-  matchesData: {
-    data: [],
-    isLoading: true,
-    error: null,
-  },
-  setMatchesData: () => {},
+  matches: [],
+  setMatches: () => {},
+  isLoading: true,
+  setIsLoading: () => {},
+  error: null,
+  setError: () => {},
 };
 
 type Props = {
@@ -28,13 +26,18 @@ type Props = {
 const MatchContext = createContext<MatchContextType>(MatchContextDefaultValues);
 
 export function MatchProvider({ children }: Props) {
-  const [matchesData, setMatchesData] = useState<MatchDataSchema>({
-    data: [],
-    isLoading: true,
-    error: null,
-  });
+  const [matches, setMatches] = useState<MatchType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<null | string>(null);
 
-  const value = { matchesData, setMatchesData };
+  const value = {
+    matches,
+    setMatches,
+    isLoading,
+    setIsLoading,
+    error,
+    setError,
+  };
 
   return (
     <MatchContext.Provider value={value}>{children}</MatchContext.Provider>

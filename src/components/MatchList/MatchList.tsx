@@ -9,7 +9,11 @@ type MatchListType = {
 
 export const MatchList: FC<MatchListType> = ({ matchList }) => {
   if (matchList.length === 0) {
-    return <h1 className={styles.empty}>Список пуст</h1>;
+    return (
+      <div className={styles.empty}>
+        <h1 className={styles.title}>Список пуст</h1>
+      </div>
+    );
   }
 
   return (
