@@ -15,16 +15,14 @@ export const Header: FC = () => {
     setIsLoading(true);
     setError(null);
 
-    getMatches()
-      .then((data) => {
-        setMatches(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setIsLoading(false);
-      })
-      .finally(() => setIsLoading(false));
+    try {
+      const data = await getMatches();
+      setMatches(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

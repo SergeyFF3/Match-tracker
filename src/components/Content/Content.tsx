@@ -12,11 +12,9 @@ export const Content: FC = () => {
   useEffect(() => {
     getMatches()
       .then((data) => {
-        setIsLoading(false);
         setMatches(data);
       })
       .catch((error) => {
-        setIsLoading(false);
         setError(error.message);
       })
       .finally(() => setIsLoading(false));

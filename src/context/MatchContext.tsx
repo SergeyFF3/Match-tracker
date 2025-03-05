@@ -7,7 +7,7 @@ type MatchContextType = {
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
   error: null | string;
-  setError: (value: string) => void;
+  setError: (value: string | null) => void;
 };
 
 const MatchContextDefaultValues: MatchContextType = {
