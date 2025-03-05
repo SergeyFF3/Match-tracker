@@ -1,0 +1,27 @@
+.button {
+  cursor: pointer;
+}
+
+.primary {
+  padding: 15px 40px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  border-radius: 4px;
+  background: rgb(235, 2, 55);
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    background: rgb(160, 17, 49);
+  }
+
+  &:active {
+    background: rgb(160, 17, 49);
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

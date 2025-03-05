@@ -12,3 +12,9 @@
   font-weight: 400;
   line-height: 100%;
 }
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
